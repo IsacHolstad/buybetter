@@ -1,4 +1,4 @@
-BuyBetter E-Commerce Website
+#BuyBetter E-Commerce Website
 This is a simple e-commerce website built using React.js and Tailwind CSS.
 
 Features
@@ -27,5 +27,5 @@ Stripe
 Contributing
 If you'd like to contribute to the project, please fork the repository and submit a pull request. We welcome contributions of all kinds, including bug fixes, feature additions, and documentation improvements.
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more information.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
