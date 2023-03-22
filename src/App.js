@@ -1,10 +1,12 @@
 import './index.css';
+import HeaderNavigation from "./components/shared/HeaderNavigation";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <HeaderNavigation/>
 
-    </div>
+    </>
   );
 }
 
