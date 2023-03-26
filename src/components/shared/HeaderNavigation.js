@@ -37,12 +37,6 @@ const HeaderNavigation = () => {
                                         >
                                             Projects
                                         </a>
-                                        <a
-                                            href="#"
-                                            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                                        >
-                                            Calendar
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -65,6 +59,13 @@ const HeaderNavigation = () => {
                                     </div>
                                 </div>
                             </div>
+                            <span className="mr-4 cursor-pointer ">
+                                <svg className="ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="white" className="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                                </svg>
+                            </span>
                             <div className="flex lg:hidden">
                                 {/* Mobile menu button */}
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -78,24 +79,14 @@ const HeaderNavigation = () => {
                             </div>
                             <div className="hidden lg:ml-4 lg:block">
                                 <div className="flex items-center">
-                                    <button
-                                        type="button"
-                                        className="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    >
-                                        <span className="sr-only">View notifications</span>
-                                        <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                    </button>
+
 
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                                         <div>
                                             <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                 <span className="sr-only">Open user menu</span>
-                                                <img
-                                                    className="h-8 w-8 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                    alt=""
-                                                />
+
                                             </Menu.Button>
                                         </div>
                                         <Transition
@@ -186,28 +177,6 @@ const HeaderNavigation = () => {
                             >
                                 Calendar
                             </Disclosure.Button>
-                        </div>
-                        <div className="border-t border-gray-700 pt-4 pb-3">
-                            <div className="flex items-center px-5">
-                                <div className="flex-shrink-0">
-                                    <img
-                                        className="h-10 w-10 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt=""
-                                    />
-                                </div>
-                                <div className="ml-3">
-                                    <div className="text-base font-medium text-white">Tom Cook</div>
-                                    <div className="text-sm font-medium text-gray-400">tom@example.com</div>
-                                </div>
-                                <button
-                                    type="button"
-                                    className="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
-                            </div>
                         </div>
                     </Disclosure.Panel>
                 </>
