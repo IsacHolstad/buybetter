@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {NavLink} from "react-router-dom";
 
 
 function classNames(...classes) {
@@ -18,7 +19,7 @@ const HeaderNavigation = () => {
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="flex items-center px-2 lg:px-0">
                                 <div className="flex-shrink-0">
-                                    <span className="text-white font-semibold text-green-600">🔋 BuyBetter</span>
+                                    <span className="text-yellow-300 font-semibold">⚡️BuyBetter</span>
                                 </div>
                                 <div className="hidden lg:ml-6 lg:block">
                                     <div className="flex space-x-4">

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Loader = () => {
     return (
         <div className="relative flex-col flex mx-auto left-1/2 top-1/2 mt-32">
