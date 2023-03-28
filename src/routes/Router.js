@@ -10,7 +10,7 @@ function Router () {
         <>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/products" element={<Home/>}/>
+                {/*<Route path="/products" element={<Home/>}/>*/}
             </Routes>
         </>
     )
