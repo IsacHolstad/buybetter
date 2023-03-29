@@ -6,7 +6,7 @@ import loaderSlice from "./modules/loaderSlice";
 //import errorSlice
 
 const reducer = combineReducers({
-    products: productSlice,
+    product: productSlice,
     loading: loaderSlice,
     //cart: cartSlice,
     //error: errorSlice

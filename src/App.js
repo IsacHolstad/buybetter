@@ -5,12 +5,11 @@ import Router from "./routes/Router";
 import {useSelector} from "react-redux";
 
 function App() {
-    const {isLoading} = useSelector(state => state.loading)
   return (
     <>
       <HeaderNavigation/>
       <Router/>
-        {isLoading && <Loader/>}
+
     </>
   );
 }

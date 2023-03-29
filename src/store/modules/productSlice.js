@@ -1,8 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {setLoadingState} from "./loaderSlice";
 import {setError} from './errorSlice';
 const productSlice = createSlice({
-    name: 'products',
+    name: 'product',
     initialState: {
         product: [],
         singleProduct: null,
@@ -21,14 +20,14 @@ const {SET_SINGLE_PRODUCT} = productSlice.actions;
 export default productSlice;
 
 export const getProducts = () => async (dispatch) => {
-    dispatch(setLoadingState(true));
+    //dispatch(setLoadingState(true));
     try {
-        const response = await fetch('https://api.noroff.dev/api/v1/online-shop/products');
+        const response = await fetch('https://api.noroff.dev/api/v1/online-shop');
         console.log(response);
         const data = await response.json();
         console.log(data);
         dispatch(SET_PRODUCT(data.product));
-        dispatch(setLoadingState(false));
+        //dispatch(setLoadingState(false));
     }
     catch (e){
         console.log(e)
@@ -39,7 +38,7 @@ export const getProducts = () => async (dispatch) => {
 }
 
 export const singleProductById = (id) => async dispatch => {
-    dispatch(setLoadingState(true));
+    //dispatch(setLoadingState(true));
     dispatch(SET_SINGLE_PRODUCT({}));
     let response;
     try {
@@ -47,7 +46,7 @@ export const singleProductById = (id) => async dispatch => {
         const data = await response.json();
         console.log("data: ", data)
         dispatch(SET_SINGLE_PRODUCT(data));
-        dispatch(setLoadingState(false));
+        //dispatch(setLoadingState(false));
     }catch (e) {
         console.log("there is error happening sorry")
         console.log(e.message)
@@ -56,7 +55,6 @@ export const singleProductById = (id) => async dispatch => {
         console.log("response is good")
     } else {
         console.log("error happening")
-        // dispatch(seterror(true))
     }
 
 }
