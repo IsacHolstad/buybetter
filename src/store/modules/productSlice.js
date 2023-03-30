@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {setError} from './errorSlice';
+
 const productSlice = createSlice({
     name: 'product',
     initialState: {
@@ -10,14 +11,14 @@ const productSlice = createSlice({
         SET_PRODUCT: (state, action) => {
             state.product = action.payload;
         },
-        SET_SINGLE_PRODUCT:(state, action) => {
+        SET_SINGLE_PRODUCT: (state, action) => {
             state.singleProduct = action.payload;
         }
     },
 })
 const {SET_PRODUCT} = productSlice.actions;
 const {SET_SINGLE_PRODUCT} = productSlice.actions;
-export default productSlice;
+export default productSlice.reducer;
 
 export const getProducts = () => async (dispatch) => {
     //dispatch(setLoadingState(true));
@@ -26,10 +27,9 @@ export const getProducts = () => async (dispatch) => {
         console.log(response);
         const data = await response.json();
         console.log(data);
-        dispatch(SET_PRODUCT(data.product));
+        dispatch(SET_PRODUCT(data));
         //dispatch(setLoadingState(false));
-    }
-    catch (e){
+    } catch (e) {
         console.log(e)
         dispatch(setError(true, e.message))
         //TODO remove log before finish
@@ -47,7 +47,7 @@ export const singleProductById = (id) => async dispatch => {
         console.log("data: ", data)
         dispatch(SET_SINGLE_PRODUCT(data));
         //dispatch(setLoadingState(false));
-    }catch (e) {
+    } catch (e) {
         console.log("there is error happening sorry")
         console.log(e.message)
     }
@@ -56,5 +56,4 @@ export const singleProductById = (id) => async dispatch => {
     } else {
         console.log("error happening")
     }
-
 }
