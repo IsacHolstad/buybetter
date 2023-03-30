@@ -19,7 +19,7 @@ const HeaderNavigation = () => {
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="flex items-center px-2 lg:px-0">
                                 <div className="flex-shrink-0">
-                                    <span className="text-yellow-300 font-semibold">⚡️BuyBetter</span>
+                                    <span className="text-green-300 font-semibold">BuyBetter</span>
                                 </div>
                                 <div className="hidden lg:ml-6 lg:block">
                                     <div className="flex space-x-4">
