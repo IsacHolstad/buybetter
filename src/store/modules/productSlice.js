@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {setError} from './errorSlice';
 
 const productSlice = createSlice({
-    name: 'product',
+    name: 'products',
     initialState: {
         product: [],
         singleProduct: null,
@@ -10,27 +10,29 @@ const productSlice = createSlice({
     reducers: {
         SET_PRODUCT: (state, action) => {
             state.product = action.payload;
+            console.log("SET PRODUCT :",SET_PRODUCT)
         },
         SET_SINGLE_PRODUCT: (state, action) => {
             state.singleProduct = action.payload;
+
         }
     },
 })
 const {SET_PRODUCT} = productSlice.actions;
 const {SET_SINGLE_PRODUCT} = productSlice.actions;
-export default productSlice.reducer;
+export default productSlice.reducer
 
-export const getProducts = () => async (dispatch) => {
+export const fetchProducts = () => async (dispatch) => {
     //dispatch(setLoadingState(true));
     try {
         const response = await fetch('https://api.noroff.dev/api/v1/online-shop');
-        console.log(response);
+        console.log("HERE ISAC",response);
         const data = await response.json();
-        console.log(data);
+        console.log("HERE ISAC THIS IS DATA",data);
         dispatch(SET_PRODUCT(data));
         //dispatch(setLoadingState(false));
     } catch (e) {
-        console.log(e)
+        console.log("HERE IS ERROR",e)
         dispatch(setError(true, e.message))
         //TODO remove log before finish
     }

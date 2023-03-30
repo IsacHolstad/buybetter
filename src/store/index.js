@@ -1,15 +1,16 @@
-import {configureStore} from '@reduxjs/toolkit';
-import {combineReducers} from '@reduxjs/toolkit';
-import productSlice from './modules/productSlice';
-import loaderSlice from "./modules/loaderSlice";
-//import cartSlice
-//import errorSlice
+import {configureStore} from '@reduxjs/toolkit'
+import {combineReducers} from '@reduxjs/toolkit'
+import productSlice from "./modules/productSlice";
+import loaderSlice from "./modules/loaderSlice"
+import cartSlice from "./modules/cartSlice";
+import errorSlice from "./modules/errorSlice";
 
 const reducer = combineReducers({
-    product: productSlice,
-    loading: loaderSlice,
-    //cart: cartSlice,
-    //error: errorSlice
+    // here we will be adding reducers
+    products: productSlice, // NOTE: Remember this name you will use with useSelector
+    loader: loaderSlice,
+    cart: cartSlice,
+    error: errorSlice
 })
 const index = configureStore({
     reducer,
