@@ -4,8 +4,10 @@ import Home from "../components/views/Home";
 import ProductDetailsPage from "../components/views/ProductDetail";
 import NotFound from "../components/views/NotFound";
 import CartCheckOutPage from "../components/views/CartCheckOutPage";
+import ContactPage from "../components/views/ContactPage";
 
 function Router() {
+    //TODO fix routing for cart page
     return (
         <>
             <Routes>
@@ -13,6 +15,7 @@ function Router() {
                 <Route path="/products" element={<Home/>}/>
                 <Route path="/product/:id" element={<ProductDetailsPage/>}/>
                 <Route patch="/cart" element={<CartCheckOutPage/>}/>
+                <Routes path="/contact" element={<ContactPage/>}/>
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </>
