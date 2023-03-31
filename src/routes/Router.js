@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Home from "../components/views/Home";
 import ProductDetailsPage from "../components/views/ProductDetail";
 import NotFound from "../components/views/NotFound";
+import CartCheckOutPage from "../components/views/CartCheckOutPage";
 
 function Router() {
     return (
@@ -11,8 +12,7 @@ function Router() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/products" element={<Home/>}/>
                 <Route path="/product/:id" element={<ProductDetailsPage/>}/>
-
-                {/*ONLY MATCH THIS WHEN NO OTHER ROUTES IS VALID MATCH*/}
+                <Route patch="/cart" element={<CartCheckOutPage/>}/>
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </>

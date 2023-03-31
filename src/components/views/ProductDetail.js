@@ -9,10 +9,6 @@ const ProductDetail = () => {
     const dispatch = useDispatch();
     const {singleProduct} = useSelector(state => state.products);
     let {id} = useParams();
-    console.log(id)
-    if (id) {
-
-    }
     useEffect(() => {
         if (id) {
             dispatch(getSingleProductById(id))
@@ -30,13 +26,11 @@ const ProductDetail = () => {
                                         className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                                         aria-controls="tabs-1-panel-1" role="tab" type="button">
                                     <span className="sr-only"> Angled view </span>
-                                    <span className="absolute inset-0 overflow-hidden rounded-md">
-              </span>
+                                    <span className="absolute inset-0 overflow-hidden rounded-md"></span>
                                     <span
                                         className="ring-transparent pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
                                         aria-hidden="true"></span>
                                 </button>
-
                             </div>
                         </div>
                         <div className="aspect-h-1 aspect-w-1 w-full">
@@ -50,29 +44,25 @@ const ProductDetail = () => {
                     </div>
                     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
                         <h1 className="text-3xl font-bold tracking-tight text-gray-900">{singleProduct.title}</h1>
-
                         <div className="mt-3">
                             <h2 className="sr-only">Product information</h2>
                             <p className="text-3xl tracking-tight text-gray-900 line-through">{singleProduct.price}</p>
                             <p className="text-3xl tracking-tight text-gray-900">{singleProduct.discountedPrice}NOK</p>
-
                         </div>
                         <div className="mt-3">
                             <h3 className="sr-only">{singleProduct.rating}</h3>
-
                         </div>
-
                         <div className="mt-6">
                             <div className="space-y-6 text-base text-gray-700">
                                 <p>{singleProduct.description}</p>
                             </div>
                         </div>
-
                         <form className="mt-6">
                             <div className="sm:flex-col1 mt-10 flex">
-                                <button type="submit"
-                                        className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-gray-800 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full ">Add
-                                    To Cart
+                                <button type="button"
+                                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 py-3 px-8 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                        onClick={() => dispatch(addSingleProductToCart(singleProduct))}>
+                                    Add to cart
                                 </button>
                             </div>
                         </form>
@@ -80,9 +70,7 @@ const ProductDetail = () => {
                 </div>
             </div>
         </div>
-
     </>
-);
-};
+)};
 
 export default ProductDetail;

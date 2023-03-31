@@ -4,13 +4,10 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {NavLink} from "react-router-dom";
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import {useSelector} from "react-redux";
 
 const HeaderNavigation = () => {
+    const {numberOfProductsInCart} = useSelector(state => state.cart)
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -18,16 +15,16 @@ const HeaderNavigation = () => {
                     <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="flex items-center px-2 lg:px-0">
-                                <div className="flex-shrink-0">
+                                <NavLink to="/" className="flex-shrink-0">
                                     <span className="text-green-300 font-semibold">BuyBetter</span>
-                                </div>
+                                </NavLink>
                                 <div className="hidden lg:ml-6 lg:block">
                                     <div className="flex space-x-4">
                                         <NavLink to="/" className="rounded-md px-3 py-2 text-sm font-medium text-white">
                                             Products
                                         </NavLink>
                                         <NavLink
-                                            to="/"
+                                            to="/contact-us"
                                             className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
                                         >
                                             Contact us
@@ -55,11 +52,18 @@ const HeaderNavigation = () => {
                                 </div>
                             </div>
                             <span className="mr-4 cursor-pointer ">
-                                <svg className="ml-4 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth="1.5" stroke="white">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
-                                </svg>
+                                <div className="ml-4 flow-root lg:ml-6">
+                                        <NavLink to="./cart" className="-m-2 flex items-center p-2 group">
+                                            <svg
+                                                className="h-6 w-6 flex-shrink-0 text-white group-hover:text-white"
+                                                fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" aria-hidden="true">
+                                                <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                                            </svg>
+                                            <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{numberOfProductsInCart}</span>
+                                            <span className="sr-only">items in cart, view cart</span>
+                                        </NavLink>
+                                    </div>
                             </span>
                             <div className="flex lg:hidden">
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -75,9 +79,8 @@ const HeaderNavigation = () => {
                                 <div className="flex items-center">
                                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                                         <div>
-                                            <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                            <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ">
                                                 <span className="sr-only">Open user menu</span>
-
                                             </Menu.Button>
                                         </div>
                                         <Transition
@@ -87,8 +90,7 @@ const HeaderNavigation = () => {
                                             enterTo="transform opacity-100 scale-100"
                                             leave="transition ease-in duration-75"
                                             leaveFrom="transform opacity-100 scale-100"
-                                            leaveTo="transform opacity-0 scale-95"
-                                        >
+                                            leaveTo="transform opacity-0 scale-95">
                                             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             </Menu.Items>
                                         </Transition>
@@ -101,17 +103,14 @@ const HeaderNavigation = () => {
                         <div className="space-y-1 px-2 pt-2 pb-3">
                             <Disclosure.Button
                                 as="a"
-                                href="#"
                                 className="block rounded-md px-3 py-2 text-base font-medium text-white"
-                            >
-                                Products
+                            ><NavLink to="/">Products</NavLink>
+
                             </Disclosure.Button>
                             <Disclosure.Button
                                 as="a"
-                                href="#"
                                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                            >
-                                Contact us
+                            ><NavLink to="/contact-us">Contact us</NavLink>
                             </Disclosure.Button>
                         </div>
                     </Disclosure.Panel>
