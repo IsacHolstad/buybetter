@@ -2,16 +2,20 @@ import React from 'react';
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {singleProductById} from "../../store/modules/productSlice";
+import {getSingleProductById} from "../../store/modules/productSlice";
 import {addSingleProductToCart} from "../../store/modules/cartSlice";
 
 const ProductDetail = () => {
     const dispatch = useDispatch();
     const {singleProduct} = useSelector(state => state.products);
     let {id} = useParams();
+    console.log(id)
+    if (id) {
+
+    }
     useEffect(() => {
         if (id) {
-            dispatch(singleProductById(id))
+            dispatch(getSingleProductById(id))
         }
     }, [dispatch, id])
 
@@ -20,11 +24,11 @@ const ProductDetail = () => {
             {singleProduct && <div>
                 <div className="bg-white">
                     <div className="pt-6">
-                        {/*Image gallery*/}
+
                         {singleProduct.imageUrl && singleProduct.imageUrl.length >= 1 &&
                             <div
                                 className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-                                {singleProduct.images[0] &&
+                                {singleProduct.imageurl[0] &&
                                     <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
                                         <img
                                             src={singleProduct.imageUrl[0]}
@@ -66,7 +70,6 @@ const ProductDetail = () => {
                                 <h2 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">{singleProduct.brand}</h2>
                             </div>
 
-                            {/*Options*/}
                             <div className="mt-4 lg:row-span-3 lg:mt-0">
                                 <h2 className="sr-only">Product information</h2>
                                 <p className="text-3xl tracking-tight text-gray-900">NOK{singleProduct.price}</p>
@@ -82,7 +85,6 @@ const ProductDetail = () => {
 
                             <div
                                 className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
-                                {/*Description and details*/}
                                 <div>
                                     <h3 className="sr-only">Description</h3>
 

@@ -4,13 +4,12 @@ import {setError} from './errorSlice';
 const productSlice = createSlice({
     name: 'products',
     initialState: {
-        product: [],
+        products: [],
         singleProduct: null,
     },
     reducers: {
         SET_PRODUCT: (state, action) => {
-            state.product = action.payload;
-            console.log("SET PRODUCT :",SET_PRODUCT)
+            state.products = action.payload;
         },
         SET_SINGLE_PRODUCT: (state, action) => {
             state.singleProduct = action.payload;
@@ -39,12 +38,14 @@ export const fetchProducts = () => async (dispatch) => {
 
 }
 
-export const singleProductById = (id) => async dispatch => {
+export const getSingleProductById = (id) => async dispatch => {
     //dispatch(setLoadingState(true));
     dispatch(SET_SINGLE_PRODUCT({}));
+    console.log(id)
     let response;
     try {
-        response = await fetch(`https://api.noroff.dev/api/v1/online-shop/product/${id}`);
+        response = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`);
+        console.log(response)
         const data = await response.json();
         console.log("data: ", data)
         dispatch(SET_SINGLE_PRODUCT(data));
