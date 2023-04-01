@@ -24,7 +24,7 @@ const HeaderNavigation = () => {
                                             Products
                                         </NavLink>
                                         <NavLink
-                                            to="/contact-us"
+                                            to="/contact"
                                             className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white"
                                         >
                                             Contact us
@@ -53,7 +53,7 @@ const HeaderNavigation = () => {
                             </div>
                             <span className="mr-4 cursor-pointer ">
                                 <div className="ml-4 flow-root lg:ml-6">
-                                        <NavLink to="./cart" className="-m-2 flex items-center p-2 group">
+                                        <NavLink to="/cartpage" className="-m-2 flex items-center p-2 group">
                                             <svg
                                                 className="h-6 w-6 flex-shrink-0 text-white group-hover:text-white"
                                                 fill="none" viewBox="0 0 24 24"
