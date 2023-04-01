@@ -33,7 +33,7 @@ function Home() {
                                                 <div>
                                                     <h3 className="text-md text-gray-700 relative">
                                                         <Link to={`product/${product.id}`}>
-                                                            <span aria-hidden="true" className="absolute inset-0"/>
+                                                            <span aria-hidden="true" className="relative inset-0 lg:w-12"/>
                                                             {product.title}
                                                         </Link>
                                                     </h3>
