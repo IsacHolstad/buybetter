@@ -43,7 +43,6 @@ const CartCheckOutPage = () => {
                                                 </div>
                                                 <div
                                                     className="flex flex-1 items-end justify-between text-sm">
-                                                    <p className="text-gray-500">Qty 1</p>
 
                                                     {product.id}
 
@@ -86,7 +85,7 @@ const CartCheckOutPage = () => {
                         </div>
                     </div>
                 </div> : <div className="bg-white p-8 rounded-lg shadow-lg">
-                    <p className="text-gray-600 text-xl mb-4">Sorry :( You have not added any item to your cart</p>
+                    <p className="text-gray-600 text-xl mb-4">Cart is empty</p>
                     <Link to="/" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Add Item</Link>
                 </div>
                 }

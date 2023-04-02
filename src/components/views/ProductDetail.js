@@ -60,7 +60,7 @@ const ProductDetail = () => {
                         <form className="mt-6">
                             <div className="sm:flex-col1 mt-10 flex">
                                 <button type="button"
-                                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 py-3 px-8 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-800 py-3 px-8 text-base font-medium text-white focus:outline-none focus:ring-2  focus:ring-offset-2"
                                         onClick={() => dispatch(addSingleProductToCart(singleProduct))}>
                                     Add to cart
                                 </button>

@@ -15,7 +15,7 @@ function Router() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/products" element={<Home/>}/>
                 <Route path="/product/:id" element={<ProductDetailsPage/>}/>
-                <Route patch="/cartpage" element={<CartCheckOutPage/>}/>
+                <Route patch="/cart" element={<CartCheckOutPage/>}/>
                 <Route path="/contact" element={<ContactPage/>}/>
                 <Route path="/thankyou" element={<ThankYouPage/>}/>
                 <Route path="*" element={<NotFound />} />
