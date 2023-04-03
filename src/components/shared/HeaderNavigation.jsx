@@ -4,6 +4,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
+import SearchBar from "./SearchBar";
 import {useSelector} from "react-redux";
 
 const HeaderNavigation = () => {
@@ -41,26 +43,20 @@ const HeaderNavigation = () => {
                                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                             <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                         </div>
-                                        <input
-                                            id="search"
-                                            name="search"
-                                            className="block w-full rounded-md border-0 bg-gray-700 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
-                                            placeholder="Search"
-                                            type="search"
-                                        />
+                                        <SearchBar/>
                                     </div>
                                 </div>
                             </div>
                             <span className="mr-4 cursor-pointer ">
                                 <div className="ml-4 flow-root lg:ml-6">
-                                        <NavLink to="/cartpage" className="-m-2 flex items-center p-2 group">
+                                        <NavLink to="/cart" className="-m-2 flex items-center p-2 group">
                                             <svg
                                                 className="h-6 w-6 flex-shrink-0 text-white group-hover:text-white"
                                                 fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor" aria-hidden="true">
                                                 <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
                                             </svg>
-                                            <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{numberOfProductsInCart}</span>
+                                            <span className="ml-2 text-sm font-medium text-white">{numberOfProductsInCart}</span>
                                             <span className="sr-only">items in cart, view cart</span>
                                         </NavLink>
                                     </div>
@@ -110,7 +106,7 @@ const HeaderNavigation = () => {
                             <Disclosure.Button
                                 as="a"
                                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                            ><NavLink to="/contact-us">Contact us</NavLink>
+                            ><NavLink to="/contact">Contact us</NavLink>
                             </Disclosure.Button>
                         </div>
                     </Disclosure.Panel>

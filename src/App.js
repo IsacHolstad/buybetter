@@ -6,12 +6,13 @@ import {useSelector} from "react-redux";
 import Footer from "./components/shared/Footer";
 
 function App() {
+    const {isLoading} = useSelector(state => state.loader)
   return (
     <>
       <HeaderNavigation/>
       <Router/>
+        {isLoading && <Loader/>}
       <Footer/>
-
     </>
   );
 }

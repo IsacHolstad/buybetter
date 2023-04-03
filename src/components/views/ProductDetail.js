@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getSingleProductById} from "../../store/modules/productSlice";
@@ -50,7 +50,7 @@ const ProductDetail = () => {
                             <p className="text-3xl tracking-tight text-gray-900">{singleProduct.discountedPrice}NOK</p>
                         </div>
                         <div className="mt-3">
-                            <h3 className="sr-only">{singleProduct.rating}</h3>
+                            <h3 className="">Rating: {singleProduct.rating} / 10</h3>
                         </div>
                         <div className="mt-6">
                             <div className="space-y-6 text-base text-gray-700">

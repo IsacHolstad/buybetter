@@ -6,8 +6,7 @@ import cartSlice from "./modules/cartSlice";
 import errorSlice from "./modules/errorSlice";
 
 const reducer = combineReducers({
-    // here we will be adding reducers
-    products: productSlice, // NOTE: Remember this name you will use with useSelector
+    products: productSlice,
     loader: loaderSlice,
     cart: cartSlice,
     error: errorSlice

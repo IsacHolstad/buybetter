@@ -14,7 +14,7 @@ const ContactPage = () => {
                     <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
                         <div className="px-6 lg:px-8">
                             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                                <h2 className="text-3xl font-bold tracking-tight text-gray-900">Let's work together</h2>
+                                <h2 className="text-3xl font-bold tracking-tight text-gray-900">Let us hear your opinion</h2>
                                 <ContactForm/>
                             </div>
                         </div>

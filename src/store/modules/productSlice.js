@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {setError} from './errorSlice';
+import {setLoadingState} from "./loaderSlice";
 
 const productSlice = createSlice({
     name: 'products',
@@ -22,13 +23,15 @@ const {SET_SINGLE_PRODUCT} = productSlice.actions;
 export default productSlice.reducer
 
 export const fetchProducts = () => async (dispatch) => {
+    dispatch(setLoadingState(true))
     try {
         const response = await fetch('https://api.noroff.dev/api/v1/online-shop');
         const data = await response.json();
         dispatch(SET_PRODUCT(data));
-        //dispatch(setLoadingState(false));
+        dispatch(setLoadingState(false));
     } catch (e) {
         dispatch(setError(true, e.message))
+        dispatch(setLoadingState(false));
     }
 }
 
@@ -39,6 +42,7 @@ export const getSingleProductById = (id) => async dispatch => {
         response = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`);
         const data = await response.json();
         dispatch(SET_SINGLE_PRODUCT(data));
+        dispatch(setLoadingState(false))
     } catch (e) {
         console.log(e.message)
     }

@@ -3,12 +3,13 @@ import {Link} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux";
 import {removeSingleProductFromCart} from "../../store/modules/cartSlice"
 
-const CartCheckOutPage = () => {
+const Cart = () => {
     const dispatch = useDispatch();
     const {productsInCart} = useSelector(state => state.cart);
     console.log(productsInCart)
     return (
         <div>
+            <h1>hello</h1>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {productsInCart.length > 0 ? <div className="flex h-full flex-col overflow-y-scroll bg-white">
                     <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
@@ -25,7 +26,7 @@ const CartCheckOutPage = () => {
                                             <div
                                                 className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                 <img
-                                                    src={product.thumbnail}
+                                                    src={productsInCart.imageUrl}
                                                     alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
                                                     className="h-full w-full object-contain object-center"/>
                                             </div>
@@ -35,21 +36,19 @@ const CartCheckOutPage = () => {
                                                     <div
                                                         className="flex justify-between text-base font-medium text-gray-900">
                                                         <h3>
-                                                            <a href="#">{product.title}</a>
+                                                            <Link to="/">{productsInCart.title}</Link>
                                                         </h3>
-                                                        <p className="ml-4">NOK{product.price}</p>
+                                                        <p className="ml-4">NOK{productsInCart.price}</p>
                                                     </div>
-                                                    <p className="mt-1 text-sm text-gray-500">{product.brand}</p>
+                                                    <p className="mt-1 text-sm text-gray-500">{productsInCart.brand}</p>
                                                 </div>
                                                 <div
                                                     className="flex flex-1 items-end justify-between text-sm">
-
-                                                    {product.id}
-
+                                                    {productsInCart.id}
                                                     <div className="flex">
                                                         <button type="button"
                                                                 className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                onClick={()=> dispatch(removeSingleProductFromCart(product.id))}
+                                                                onClick={()=> dispatch(removeSingleProductFromCart(productsInCart.id))}
                                                         >Remove
                                                         </button>
                                                     </div>
@@ -94,4 +93,4 @@ const CartCheckOutPage = () => {
     );
 };
 
-export default CartCheckOutPage;
+export default Cart;

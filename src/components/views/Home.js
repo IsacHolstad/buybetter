@@ -33,12 +33,11 @@ function Home() {
                                                 <div>
                                                     <h3 className="text-md text-gray-700 relative">
                                                         <Link to={`product/${product.id}`}>
-                                                            <span aria-hidden="true" className="relative inset-0 lg:w-12"/>
+                                                            <span aria-hidden="true" className="relative inset-0 w-full"/>
                                                             {product.title}
                                                         </Link>
                                                     </h3>
                                                 </div>
-                                                <p className="text-sm font-medium text-gray-900 line-through px-2">NOK{product.price}</p>
                                                 <p className="text-sm font-medium text-gray-900">NOK{product.discountedPrice}</p>
                                             </div>
                                             <Link to={`product/${product.id}`}
