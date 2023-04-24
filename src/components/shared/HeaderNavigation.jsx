@@ -5,7 +5,6 @@ import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {NavLink} from "react-router-dom";
 import {Link} from "react-router-dom";
-import SearchBar from "./SearchBar";
 import {useSelector} from "react-redux";
 
 const HeaderNavigation = () => {
